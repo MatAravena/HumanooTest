@@ -6,12 +6,7 @@ import { catchError, exhaustMap, map, mergeMap, of } from 'rxjs';
 
 @Injectable()
 export class BookEffects {
-  constructor(private actions$: Actions,
-     private bookService: BookService)
-  {
-    console.log('Actions:'  );
-    console.log('BookService:'  );
-  }
+  constructor(private actions$: Actions, private bookService: BookService) { }
 
   loadBooks$ = createEffect(() => 
     this.actions$.pipe(

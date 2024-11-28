@@ -1,13 +1,13 @@
 <div class="container">
     <h1>Book List</h1>
   
-    @if (loading$) {
+    @if (loading$ | async) {
       <div class="loading">
         <p>Loading books...</p>
       </div>
     }
 
-    @if (error$) {
+    @if (error$ | async) {
       <div class="error">
         <p>{{ error$ }}</p>
       </div>
