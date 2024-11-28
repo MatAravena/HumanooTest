@@ -8,7 +8,7 @@ import { Book } from '../models/book.model';
   providedIn: 'root'
 })
 export class BookService {
-  private apiUrl = 'https://localhost:7295//api/books';
+  private apiUrl = 'https://localhost:7295/api/Books';
 
   constructor(private http: HttpClient) {
     console.log('Services constructor')
@@ -16,12 +16,9 @@ export class BookService {
 
   getBooks(): Observable<Book[]> {
     console.log('Services getBooks')
-    var something = this.http.get<Book[]>(this.apiUrl).pipe(
+    return this.http.get<Book[]>(this.apiUrl).pipe(
       catchError(this.handleError)
     );
-
-    console.log(something)
-    return something
   }
 
   getBookById(id: number): Observable<Book> {

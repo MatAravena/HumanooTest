@@ -19,8 +19,7 @@ interface WeatherForecast {
 export class AppComponent implements OnInit {
   title = 'Book Manager';
 
-  constructor(private http: HttpClient, private bookService: BookService) {
-    console.log('App initialized');
+  constructor(private http: HttpClient, private bookService: BookService) { 
     this.bookService.getBooks().subscribe(
       books => console.log('Books:', books),
       error => console.error('Error:', error)

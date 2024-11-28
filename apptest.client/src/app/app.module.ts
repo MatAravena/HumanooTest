@@ -10,7 +10,6 @@ import { StoreModule } from '@ngrx/store';
 import { bookReducer } from './store/book.reducer';
 import { EffectsModule, USER_PROVIDED_EFFECTS } from '@ngrx/effects';
 import { BookEffects } from './store/book.effects';
-// import * as bookEffects from './store/book.effects';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'; 
@@ -29,14 +28,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     RouterModule,
     StoreModule.forRoot({ books: bookReducer }),
     EffectsModule.forRoot([BookEffects]),
-    // HttpClientModule,
-    //EffectsModule.forRoot([BookEffects, bookEffects]),
-    // BookEffects,
-    // {
-    //   provide: USER_PROVIDED_EFFECTS,
-    //   multi: true,
-    //   useValue: [BookEffects],
-    // },
     StoreDevtoolsModule.instrument({ maxAge: 25 }) 
   ],
   providers: [

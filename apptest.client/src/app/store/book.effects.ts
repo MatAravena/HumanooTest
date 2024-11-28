@@ -9,8 +9,8 @@ export class BookEffects {
   constructor(private actions$: Actions,
      private bookService: BookService)
   {
-    console.log('Actions:', this.actions$);
-    console.log('BookService:', this.bookService);
+    console.log('Actions:'  );
+    console.log('BookService:'  );
   }
 
   loadBooks$ = createEffect(() => 
