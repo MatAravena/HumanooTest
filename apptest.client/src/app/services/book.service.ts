@@ -15,7 +15,6 @@ export class BookService {
   }
 
   getBooks(): Observable<Book[]> {
-    console.log('Services getBooks')
     return this.http.get<Book[]>(this.apiUrl).pipe(
       catchError(this.handleError)
     );
