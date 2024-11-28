@@ -1,0 +1,31 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+
+  th, td {
+    text-align: left;
+    padding: 10px;
+  }
+}
+
+.loading, .error {
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+button {
+  margin-right: 5px;
+}

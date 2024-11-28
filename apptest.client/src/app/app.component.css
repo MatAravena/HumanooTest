@@ -1,0 +1,66 @@
+﻿/* Base styles for all devices */
+.container {
+    width: 95%;
+    padding: 16px;
+  
+    /* Mobile Styles */
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+  
+    /* Tablet Styles */
+    @media (min-width: 600px) and (max-width: 1024px) {
+      flex-direction: row;
+    }
+  
+    /* Desktop Styles */
+    @media (min-width: 1024px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+}
+
+.app-container {
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #4CAF50;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    color: white;
+    margin: 0;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+
+    li {
+      a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        &.active {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.content {
+  padding: 20px;
+}

@@ -1,0 +1,47 @@
+<div class="container">
+    <h1>Book List</h1>
+  
+    @if (loading$) {
+      <div class="loading">
+        <p>Loading books...</p>
+      </div>
+    }
+
+    @if (error$) {
+      <div class="error">
+        <p>{{ error$ }}</p>
+      </div>
+    }
+    <button class="btn btn-primary mb-3" (click)="createBook()">Add New Book</button>
+
+    @if (hasBooks$ | async) { 
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books$ | async">
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.description }}</td>
+            <td>{{ book.price | currency }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm" (click)="editBook(book.id)">Edit</button>
+              <button class="btn btn-danger btn-sm" (click)="deleteBook(book.id)">Delete</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+    } @else {
+      <ng-template #noBooks>
+        <p>No books available. Add a new book to get started.</p>
+      </ng-template>
+    }
+
+  </div>
