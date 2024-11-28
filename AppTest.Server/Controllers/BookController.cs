@@ -42,20 +42,37 @@ namespace AppTest.Server.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateBook(int id, Book book)
         {
-            if (id != book.Id)
+            try
             {
-                return BadRequest();
+                await _repository.UpdateBookAsync(id, book);
+                return NoContent();
             }
-
-            await _repository.UpdateBookAsync(book);
-            return NoContent();
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook(int id)
         {
-            await _repository.DeleteBookAsync(id);
-            return NoContent();
+            try
+            {
+                await _repository.DeleteBookAsync(id);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
     }
 }

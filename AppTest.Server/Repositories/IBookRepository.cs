@@ -7,7 +7,7 @@ namespace AppTest.Server.Repositories
         Task<IEnumerable<Book>> GetBooksAsync();
         Task<Book> GetBookByIdAsync(int id);
         Task AddBookAsync(Book book);
-        Task UpdateBookAsync(Book book);
+        Task UpdateBookAsync(int id, Book book);
         Task DeleteBookAsync(int id);
     }
 }

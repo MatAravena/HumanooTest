@@ -28,9 +28,19 @@ namespace AppTest.Server.Repositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateBookAsync(Book book)
+        public async Task UpdateBookAsync(int id, Book book)
         {
-            _context.Entry(book).State = EntityState.Modified;
+            var existingBook = await _context.Books.FindAsync(id);
+
+            if (existingBook == null)
+                throw new KeyNotFoundException($"Book with ID {book.Id} not found.");
+
+            existingBook.Author = book.Author;
+            existingBook.Title = book.Title;    
+            existingBook.Description = book.Description;
+            existingBook.Price = book.Price;
+
+            _context.Entry(existingBook).CurrentValues.SetValues(existingBook);
             await _context.SaveChangesAsync();
         }
 
@@ -41,6 +51,10 @@ namespace AppTest.Server.Repositories
             {
                 _context.Books.Remove(book);
                 await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new KeyNotFoundException($"Book with ID {id} not found.");
             }
         }
     }
