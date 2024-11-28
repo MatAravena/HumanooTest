@@ -1,31 +1,136 @@
-.container {
-  max-width: 800px;
-  margin: 0 auto;
+.book-list-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #f9f9f9;
   padding: 20px;
-}
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.table {
-  width: 100%;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-
-  th, td {
-    text-align: left;
-    padding: 10px;
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
   }
-}
 
-.loading, .error {
-  text-align: center;
-  margin: 20px 0;
-  font-weight: bold;
-}
+  .loading-message,
+  .error-message {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 20px 0;
 
-button {
-  margin-right: 5px;
+    p {
+      color: #555;
+    }
+  }
+
+  .error-message {
+    color: #dc3545;
+
+    p {
+      color: #dc3545;
+    }
+  }
+
+  .actions {
+    text-align: center;
+    margin-bottom: 20px;
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &.btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+    thead {
+      background: #007bff;
+      color: white;
+
+      th {
+        text-align: left;
+        padding: 10px;
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-child(even) {
+          background: #f2f2f2;
+        }
+
+        &:hover {
+          background: #eef;
+        }
+      }
+
+      td {
+        padding: 10px;
+        text-align: left;
+        vertical-align: middle;
+
+        &.actions-cell {
+          display: flex;
+          gap: 10px;
+          justify-content: center;
+        }
+      }
+    }
+
+    border: 1px solid #ddd;
+  }
+
+  .no-books-message {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #555;
+    margin-top: 20px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    transition: background-color 0.3s;
+
+    &.btn-warning {
+      background-color: #ffc107;
+      color: #212529;
+
+      &:hover {
+        background-color: #e0a800;
+      }
+    }
+
+    &.btn-danger {
+      background-color: #dc3545;
+      color: #fff;
+
+      &:hover {
+        background-color: #c82333;
+      }
+    }
+  }
 }

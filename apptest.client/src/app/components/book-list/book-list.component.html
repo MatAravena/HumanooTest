@@ -1,21 +1,23 @@
-<div class="container">
+<div class="book-list-container">
     <h1>Book List</h1>
   
     @if (loading$ | async) {
-      <div class="loading">
+      <div class="loading-message">
         <p>Loading books...</p>
       </div>
     }
 
     @if (error$ | async) {
-      <div class="error">
+      <div class="error-message">
         <p>{{ error$ }}</p>
       </div>
     }
-    <button class="btn btn-primary mb-3" (click)="createBook()">Add New Book</button>
+    <div class="actions">
+      <button class="btn btn-primary" (click)="createBook()">Add New Book</button>
+    </div>
 
     @if (hasBooks$ | async) { 
-    <table class="table table-bordered">
+    <table class="table">
       <thead>
         <tr>
           <th>Title</th>
@@ -39,9 +41,9 @@
       </tbody>
     </table>
     } @else {
-      <ng-template #noBooks>
+      <div class="no-books-message" #noBooks >
         <p>No books available. Add a new book to get started.</p>
-      </ng-template>
+      </div>
     }
 
   </div>
