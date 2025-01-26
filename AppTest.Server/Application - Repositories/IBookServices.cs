@@ -2,7 +2,7 @@
 
 namespace AppTest.Server.Repositories
 {
-    public interface IBookRepository
+    public interface IBookServices
     {
         Task<IEnumerable<Book>> GetBooksAsync();
         Task<Book> GetBookByIdAsync(int id);

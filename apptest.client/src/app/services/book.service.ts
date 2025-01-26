@@ -49,10 +49,8 @@ export class BookService {
     let errorMessage = 'An unexpected error occurred.';
 
     if (error.error instanceof ErrorEvent) {
-      // Client-side error
       errorMessage = `Client-side error: ${error.error.message}`;
     } else {
-      // Server-side error
       errorMessage = `Server-side error: ${error.status} - ${error.message}`;
     }
 

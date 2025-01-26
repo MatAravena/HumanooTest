@@ -3,11 +3,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AppTest.Server.Repositories
 {
-    public class BookRepository : IBookRepository
+    public class BookService : IBookServices
     {
         private readonly BookContext _context;
 
-        public BookRepository(BookContext context)
+        //Implement Bussiness Rule / USE CASES
+        public BookService(BookContext context)
         {
             _context = context;
         }

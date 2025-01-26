@@ -12,7 +12,8 @@ builder.Services.AddDbContext<BookContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Repository for DI
-builder.Services.AddScoped<IBookRepository, BookRepository>();
+//builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<IBookServices, BookService>();
 
 // Enable CORS
 builder.Services.AddCors(options =>
@@ -21,11 +22,10 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins("http://localhost:4200")
               .AllowAnyHeader()
+              .AllowAnyOrigin()
               .AllowAnyMethod();
     });
 });
-
-
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -9,12 +9,13 @@ namespace AppTest.Server.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly IBookRepository _repository;
+        private readonly IBookServices _repository;
 
-        public BooksController(IBookRepository repository)
+        public BooksController(IBookServices repository)
         {
             _repository = repository;
         }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
         {
