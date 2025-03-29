@@ -4,8 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Store } from '@ngrx/store';
 import * as BookSelectors from '../../store/book.selectors';
 import * as BookActions from '../../store/book.actions';
-import { Observable } from 'rxjs';
-import { Book } from '../../models/book.model';
+import { Observable } from 'rxjs'; 
 
 @Component({
   selector: 'app-book-manager',
@@ -32,7 +31,6 @@ export class BookManagerComponent implements OnInit {
       description: [''],
       price: [0, [Validators.required, Validators.min(0)]]
     });
-
     this.error$ = this.store.select(BookSelectors.selectError);
   }
 
@@ -42,7 +40,7 @@ export class BookManagerComponent implements OnInit {
       this.isEditing = !!this.bookId;
 
       if (this.isEditing && this.bookId) {
-        
+
         // Trigger books fetching
         this.store.select(BookSelectors.selectBooks).subscribe((books) => {
           const book = books.find(b => b.id === Number(this.bookId));

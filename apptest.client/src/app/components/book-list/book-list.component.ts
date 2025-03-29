@@ -6,7 +6,6 @@ import { Store } from '@ngrx/store';
 import * as BookActions from '../../store/book.actions';
 import * as BookSelectors from '../../store/book.selectors';
 import { map, Observable } from 'rxjs';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-book-list',
@@ -20,7 +19,7 @@ export class BookListComponent implements OnInit {
   error$: Observable<string | null>;
   hasBooks$: Observable<boolean>;
 
-  constructor(private router: Router, private store: Store<{ movies: Book[] }>)
+  constructor(private router: Router, private store: Store<{ books: Book[] }>)
   {
     console.log('const book list')
     this.books$ = this.store.select(BookSelectors.selectBooks);

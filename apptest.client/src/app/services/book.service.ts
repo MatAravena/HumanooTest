@@ -53,7 +53,7 @@ export class BookService {
     } else {
       errorMessage = `Server-side error: ${error.status} - ${error.message}`;
     }
-
+  
     alert(errorMessage);
     return throwError(() => new Error(errorMessage));
   }
